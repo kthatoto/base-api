@@ -12,6 +12,8 @@ gem 'rack-cors'
 
 gem 'banken'
 gem 'active_model_serializers'
+gem 'dotenv-rails'
+gem 'firebase-auth'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
