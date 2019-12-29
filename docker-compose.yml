@@ -8,6 +8,7 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
     command: --character-set-server=utf8 --collation-server=utf8_general_ci
   app:
     tty: true
@@ -25,3 +26,4 @@ services:
     environment:
       RAILS_DB_HOST: db
       MYSQL_ROOT_PASSWORD:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"

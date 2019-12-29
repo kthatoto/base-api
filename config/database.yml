@@ -14,8 +14,8 @@ default: &default
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password:
-  socket: /tmp/mysql.sock
+  password: <%= ENV["MYSQL_ROOT_PASSWORD"] %>
+  host: <%= ENV["RAILS_DB_HOST"] %>
 
 development:
   <<: *default
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: base_api_production
-  username: base_api
-  password: <%= ENV['BASE_API_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>
