@@ -7,6 +7,10 @@ class ApplicationController < ActionController::API
 
   private
 
+    def authorization!
+      raise 401 if current_user.blank?
+    end
+  
     def current_user
       return @current_user if @current_user
       return nil unless token = request.headers['Authorization']
